@@ -1,2 +1,2 @@
 # React
- Aprendendo React do zero
+Learning React from absolutely zero
