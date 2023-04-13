@@ -1,21 +1,39 @@
 import logo from './logo.svg';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import './App.css';
-import SayMyName from './components/SayMyName';
-import Pessoa from './components/Pessoa';
-import Frase from './components/Frase';
+import Contato from './components/pages/Contato';
+import Empresa from './components/pages/Empresa';
+import Home from './components/pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <h2>Alterando o JSX</h2>
-      <Frase/>
-      <Frase/>
-      <SayMyName nome="Jao"/>
-      <SayMyName nome="Julio"/>
-      <SayMyName nome="Gabriel"/>
-      <Pessoa foto="https://via.placeholder.com/150" nome="Jaozada" idade="30" profissao="Programador"/>
-    </div>
-  );
+  <Router>
+    <ul>
+      <li>
+        <Link to='/'>Home</Link>
+      </li>
+      <li>
+        <Link to='/empresa'>Empresa</Link>
+      </li>
+      <li>
+        <Link to='/contato'>Contato</Link>
+      </li>
+    </ul>
+    <Routes>
+      <Route exact path='/' element={<Home/>}/>
+      <Route path='/empresa' element={<Empresa/>}/>
+      <Route path='/contato' element={<Contato/>}/>
+    </Routes>
+  </Router>
+  )
+
+  // const [nome, setNome] = useState()
+  // return (
+  //   <div className="App">
+  //     <SeuNome pegarNome={nome} nome={setNome}/>
+  //     <Saudacao nome={nome}/>
+  //   </div>
+  // );
 }
 
 export default App;
